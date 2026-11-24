@@ -1,0 +1,46 @@
+{
+  "DT_SkillNameText": {
+    "PASSIVE_PalPack_Juggernaut": "白猪战车",
+    "PASSIVE_PalPack_Homebody": "宅断腿",
+    "PASSIVE_PalPack_KaiWilderness": "凯旋山野",
+    "PASSIVE_PalPack_PaperTiger": "纸老虎"
+  },
+  "DT_SkillDescText": {
+    "PASSIVE_PalPack_Juggernaut_DESC": "最大生命值＋100%；防御＋150%。",
+    "PASSIVE_PalPack_Homebody_DESC": "担任基地工作帕鲁时：SAN值下降速度－30%；饱食度下降速度－30%；移动速度－20%；工作速度－15%。",
+    "PASSIVE_PalPack_KaiWilderness_DESC": "草属性伤害＋20%；攻击＋15%。",
+    "PASSIVE_PalPack_PaperTiger_DESC": "攻击＋40%；防御－20%。"
+  },
+  "DT_ItemNameText": {
+    "ITEM_NAME_PalPack_Implant_Legend": "传说植入物",
+    "ITEM_NAME_PalPack_Implant_ElementBoost_Normal_2_PAL": "圣天植入物",
+    "ITEM_NAME_PalPack_Implant_ElementBoost_Fire_2_PAL": "炎帝植入物",
+    "ITEM_NAME_PalPack_Implant_ElementBoost_Aqua_2_PAL": "海皇植入物",
+    "ITEM_NAME_PalPack_Implant_ElementBoost_Thunder_2_PAL": "雷帝植入物",
+    "ITEM_NAME_PalPack_Implant_ElementBoost_Leaf_2_PAL": "精灵王植入物",
+    "ITEM_NAME_PalPack_Implant_ElementBoost_Ice_2_PAL": "冰帝植入物",
+    "ITEM_NAME_PalPack_Implant_ElementBoost_Earth_2_PAL": "岩帝植入物",
+    "ITEM_NAME_PalPack_Implant_ElementBoost_Dark_2_PAL": "冥王植入物",
+    "ITEM_NAME_PalPack_Implant_ElementBoost_Dragon_2_PAL": "神龙植入物",
+    "ITEM_NAME_PalPack_Implant_PalPack_Juggernaut": "白猪战车植入物",
+    "ITEM_NAME_PalPack_Implant_PalPack_Homebody": "宅断腿植入物",
+    "ITEM_NAME_PalPack_Implant_PalPack_KaiWilderness": "凯旋山野植入物",
+    "ITEM_NAME_PalPack_Implant_PalPack_PaperTiger": "纸老虎植入物"
+  },
+  "DT_ItemDescriptionText": {
+    "ITEM_DESC_PalPack_Implant_Legend": "持有此植入物时，可在帕鲁手术台选择「传说」。每次手术花费 500,000 金币。",
+    "ITEM_DESC_PalPack_Implant_ElementBoost_Normal_2_PAL": "持有此植入物时，可在帕鲁手术台选择「圣天」。每次手术花费 500,000 金币。",
+    "ITEM_DESC_PalPack_Implant_ElementBoost_Fire_2_PAL": "持有此植入物时，可在帕鲁手术台选择「炎帝」。每次手术花费 500,000 金币。",
+    "ITEM_DESC_PalPack_Implant_ElementBoost_Aqua_2_PAL": "持有此植入物时，可在帕鲁手术台选择「海皇」。每次手术花费 500,000 金币。",
+    "ITEM_DESC_PalPack_Implant_ElementBoost_Thunder_2_PAL": "持有此植入物时，可在帕鲁手术台选择「雷帝」。每次手术花费 500,000 金币。",
+    "ITEM_DESC_PalPack_Implant_ElementBoost_Leaf_2_PAL": "持有此植入物时，可在帕鲁手术台选择「精灵王」。每次手术花费 500,000 金币。",
+    "ITEM_DESC_PalPack_Implant_ElementBoost_Ice_2_PAL": "持有此植入物时，可在帕鲁手术台选择「冰帝」。每次手术花费 500,000 金币。",
+    "ITEM_DESC_PalPack_Implant_ElementBoost_Earth_2_PAL": "持有此植入物时，可在帕鲁手术台选择「岩帝」。每次手术花费 500,000 金币。",
+    "ITEM_DESC_PalPack_Implant_ElementBoost_Dark_2_PAL": "持有此植入物时，可在帕鲁手术台选择「冥王」。每次手术花费 500,000 金币。",
+    "ITEM_DESC_PalPack_Implant_ElementBoost_Dragon_2_PAL": "持有此植入物时，可在帕鲁手术台选择「神龙」。每次手术花费 500,000 金币。",
+    "ITEM_DESC_PalPack_Implant_PalPack_Juggernaut": "持有此植入物时，可在帕鲁手术台选择「白猪战车」。每次手术花费 500,000 金币。最大生命值＋100%；防御＋150%。",
+    "ITEM_DESC_PalPack_Implant_PalPack_Homebody": "持有此植入物时，可在帕鲁手术台选择「宅断腿」。每次手术花费 500,000 金币。担任基地工作帕鲁时：SAN值下降速度－30%；饱食度下降速度－30%；移动速度－20%；工作速度－15%。",
+    "ITEM_DESC_PalPack_Implant_PalPack_KaiWilderness": "持有此植入物时，可在帕鲁手术台选择「凯旋山野」。每次手术花费 500,000 金币。草属性伤害＋20%；攻击＋15%。",
+    "ITEM_DESC_PalPack_Implant_PalPack_PaperTiger": "持有此植入物时，可在帕鲁手术台选择「纸老虎」。每次手术花费 500,000 金币。攻击＋40%；防御－20%。"
+  }
+}

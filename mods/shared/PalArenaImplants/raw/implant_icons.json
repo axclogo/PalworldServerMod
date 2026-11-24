@@ -1,0 +1,46 @@
+{
+  "DT_ItemIconDataTable": {
+    "PalPack_Implant_Legend": {
+      "Icon": "/Game/Others/InventoryItemIcon/Texture/T_itemicon_Material_PalPassiveSkillChange.T_itemicon_Material_PalPassiveSkillChange"
+    },
+    "PalPack_Implant_ElementBoost_Normal_2_PAL": {
+      "Icon": "/Game/Others/InventoryItemIcon/Texture/T_itemicon_Material_PalPassiveSkillChange.T_itemicon_Material_PalPassiveSkillChange"
+    },
+    "PalPack_Implant_ElementBoost_Fire_2_PAL": {
+      "Icon": "/Game/Others/InventoryItemIcon/Texture/T_itemicon_Material_PalPassiveSkillChange.T_itemicon_Material_PalPassiveSkillChange"
+    },
+    "PalPack_Implant_ElementBoost_Aqua_2_PAL": {
+      "Icon": "/Game/Others/InventoryItemIcon/Texture/T_itemicon_Material_PalPassiveSkillChange.T_itemicon_Material_PalPassiveSkillChange"
+    },
+    "PalPack_Implant_ElementBoost_Thunder_2_PAL": {
+      "Icon": "/Game/Others/InventoryItemIcon/Texture/T_itemicon_Material_PalPassiveSkillChange.T_itemicon_Material_PalPassiveSkillChange"
+    },
+    "PalPack_Implant_ElementBoost_Leaf_2_PAL": {
+      "Icon": "/Game/Others/InventoryItemIcon/Texture/T_itemicon_Material_PalPassiveSkillChange.T_itemicon_Material_PalPassiveSkillChange"
+    },
+    "PalPack_Implant_ElementBoost_Ice_2_PAL": {
+      "Icon": "/Game/Others/InventoryItemIcon/Texture/T_itemicon_Material_PalPassiveSkillChange.T_itemicon_Material_PalPassiveSkillChange"
+    },
+    "PalPack_Implant_ElementBoost_Earth_2_PAL": {
+      "Icon": "/Game/Others/InventoryItemIcon/Texture/T_itemicon_Material_PalPassiveSkillChange.T_itemicon_Material_PalPassiveSkillChange"
+    },
+    "PalPack_Implant_ElementBoost_Dark_2_PAL": {
+      "Icon": "/Game/Others/InventoryItemIcon/Texture/T_itemicon_Material_PalPassiveSkillChange.T_itemicon_Material_PalPassiveSkillChange"
+    },
+    "PalPack_Implant_ElementBoost_Dragon_2_PAL": {
+      "Icon": "/Game/Others/InventoryItemIcon/Texture/T_itemicon_Material_PalPassiveSkillChange.T_itemicon_Material_PalPassiveSkillChange"
+    },
+    "PalPack_Implant_PalPack_Juggernaut": {
+      "Icon": "/Game/Others/InventoryItemIcon/Texture/T_itemicon_Material_PalPassiveSkillChange.T_itemicon_Material_PalPassiveSkillChange"
+    },
+    "PalPack_Implant_PalPack_Homebody": {
+      "Icon": "/Game/Others/InventoryItemIcon/Texture/T_itemicon_Material_PalPassiveSkillChange.T_itemicon_Material_PalPassiveSkillChange"
+    },
+    "PalPack_Implant_PalPack_KaiWilderness": {
+      "Icon": "/Game/Others/InventoryItemIcon/Texture/T_itemicon_Material_PalPassiveSkillChange.T_itemicon_Material_PalPassiveSkillChange"
+    },
+    "PalPack_Implant_PalPack_PaperTiger": {
+      "Icon": "/Game/Others/InventoryItemIcon/Texture/T_itemicon_Material_PalPassiveSkillChange.T_itemicon_Material_PalPassiveSkillChange"
+    }
+  }
+}

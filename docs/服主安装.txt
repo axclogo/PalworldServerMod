@@ -1,0 +1,6 @@
+服主安装（Linux 通过 Wine 运行 Windows 专服，已装 UE4SS 和 PalSchema）
+
+1. 停服，备份 Pal/Saved，解压「幻兽帕鲁-服务端.zip」。
+2. 把解压出来的 Pal 文件夹复制到服务器根目录，与已有的 Pal 合并。复制好后应能找到 Pal/Content/Paks/~mods/PalSoulCap80_P.pak。
+3. 打开包里的 Mods，把 PalGroundStacksRuntime 和 PalSchema 两个文件夹复制到平时装 UE4SS Mod 的 Mods 文件夹。同名文件夹选「合并」，同名文件选「替换」。手工安装的目录是 Pal/Binaries/Win64/ue4ss/Mods/。
+4. 升级旧包时，从第 3 步的目标目录移走 PalSchema/mods/PalSoulCap80 整个旧文件夹。使用容器同步 Mod 的，也从部署源移走它。首次安装跳过这步。启动服务器，玩家安装同批玩家包再进服。

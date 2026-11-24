@@ -1,0 +1,122 @@
+{
+  "DT_ItemShopCreateData": {
+    "Arena_Shop_1": {
+      "productDataArray": {
+        "Items": [
+          {
+            "StaticItemId": "PalPack_Implant_Legend",
+            "StaticItemID": "PalPack_Implant_Legend",
+            "ProductType": "EPalItemShopProductType::OnlyPurchaseOne",
+            "OverridePrice": 250,
+            "ProductNum": 1,
+            "Stock": 0
+          },
+          {
+            "StaticItemId": "PalPack_Implant_ElementBoost_Normal_2_PAL",
+            "StaticItemID": "PalPack_Implant_ElementBoost_Normal_2_PAL",
+            "ProductType": "EPalItemShopProductType::OnlyPurchaseOne",
+            "OverridePrice": 150,
+            "ProductNum": 1,
+            "Stock": 0
+          },
+          {
+            "StaticItemId": "PalPack_Implant_ElementBoost_Fire_2_PAL",
+            "StaticItemID": "PalPack_Implant_ElementBoost_Fire_2_PAL",
+            "ProductType": "EPalItemShopProductType::OnlyPurchaseOne",
+            "OverridePrice": 150,
+            "ProductNum": 1,
+            "Stock": 0
+          },
+          {
+            "StaticItemId": "PalPack_Implant_ElementBoost_Aqua_2_PAL",
+            "StaticItemID": "PalPack_Implant_ElementBoost_Aqua_2_PAL",
+            "ProductType": "EPalItemShopProductType::OnlyPurchaseOne",
+            "OverridePrice": 150,
+            "ProductNum": 1,
+            "Stock": 0
+          },
+          {
+            "StaticItemId": "PalPack_Implant_ElementBoost_Thunder_2_PAL",
+            "StaticItemID": "PalPack_Implant_ElementBoost_Thunder_2_PAL",
+            "ProductType": "EPalItemShopProductType::OnlyPurchaseOne",
+            "OverridePrice": 150,
+            "ProductNum": 1,
+            "Stock": 0
+          },
+          {
+            "StaticItemId": "PalPack_Implant_ElementBoost_Leaf_2_PAL",
+            "StaticItemID": "PalPack_Implant_ElementBoost_Leaf_2_PAL",
+            "ProductType": "EPalItemShopProductType::OnlyPurchaseOne",
+            "OverridePrice": 150,
+            "ProductNum": 1,
+            "Stock": 0
+          },
+          {
+            "StaticItemId": "PalPack_Implant_ElementBoost_Ice_2_PAL",
+            "StaticItemID": "PalPack_Implant_ElementBoost_Ice_2_PAL",
+            "ProductType": "EPalItemShopProductType::OnlyPurchaseOne",
+            "OverridePrice": 150,
+            "ProductNum": 1,
+            "Stock": 0
+          },
+          {
+            "StaticItemId": "PalPack_Implant_ElementBoost_Earth_2_PAL",
+            "StaticItemID": "PalPack_Implant_ElementBoost_Earth_2_PAL",
+            "ProductType": "EPalItemShopProductType::OnlyPurchaseOne",
+            "OverridePrice": 150,
+            "ProductNum": 1,
+            "Stock": 0
+          },
+          {
+            "StaticItemId": "PalPack_Implant_ElementBoost_Dark_2_PAL",
+            "StaticItemID": "PalPack_Implant_ElementBoost_Dark_2_PAL",
+            "ProductType": "EPalItemShopProductType::OnlyPurchaseOne",
+            "OverridePrice": 150,
+            "ProductNum": 1,
+            "Stock": 0
+          },
+          {
+            "StaticItemId": "PalPack_Implant_ElementBoost_Dragon_2_PAL",
+            "StaticItemID": "PalPack_Implant_ElementBoost_Dragon_2_PAL",
+            "ProductType": "EPalItemShopProductType::OnlyPurchaseOne",
+            "OverridePrice": 150,
+            "ProductNum": 1,
+            "Stock": 0
+          },
+          {
+            "StaticItemId": "PalPack_Implant_PalPack_Juggernaut",
+            "StaticItemID": "PalPack_Implant_PalPack_Juggernaut",
+            "ProductType": "EPalItemShopProductType::OnlyPurchaseOne",
+            "OverridePrice": 250,
+            "ProductNum": 1,
+            "Stock": 0
+          },
+          {
+            "StaticItemId": "PalPack_Implant_PalPack_Homebody",
+            "StaticItemID": "PalPack_Implant_PalPack_Homebody",
+            "ProductType": "EPalItemShopProductType::OnlyPurchaseOne",
+            "OverridePrice": 250,
+            "ProductNum": 1,
+            "Stock": 0
+          },
+          {
+            "StaticItemId": "PalPack_Implant_PalPack_KaiWilderness",
+            "StaticItemID": "PalPack_Implant_PalPack_KaiWilderness",
+            "ProductType": "EPalItemShopProductType::OnlyPurchaseOne",
+            "OverridePrice": 250,
+            "ProductNum": 1,
+            "Stock": 0
+          },
+          {
+            "StaticItemId": "PalPack_Implant_PalPack_PaperTiger",
+            "StaticItemID": "PalPack_Implant_PalPack_PaperTiger",
+            "ProductType": "EPalItemShopProductType::OnlyPurchaseOne",
+            "OverridePrice": 250,
+            "ProductNum": 1,
+            "Stock": 0
+          }
+        ]
+      }
+    }
+  }
+}

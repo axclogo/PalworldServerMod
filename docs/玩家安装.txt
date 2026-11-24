@@ -1,0 +1,8 @@
+玩家安装（Windows Steam，已装 UE4SS 和 PalSchema）
+
+1. 退出游戏，解压「幻兽帕鲁-玩家端.zip」。在 Steam 库右键《幻兽帕鲁》→ 管理 → 浏览本地文件。
+2. 把解压出来的 Pal 文件夹复制到游戏根目录，与已有的 Pal 合并。复制好后应能找到 Pal/Content/Paks/~mods/PalSoulCap80_P.pak。
+3. 打开解压出来的 Mods，把里面的四个文件夹全部复制到你平时装 UE4SS Mod 的 Mods 文件夹。同名文件夹选「合并」，同名文件选「替换」。
+   工坊装的 UE4SS 放到游戏目录的 Mods/NativeMods/UE4SS/Mods/。
+   手工装的 UE4SS 放到游戏目录的 Pal/Binaries/Win64/ue4ss/Mods/。
+4. 升级旧包的玩家，在第 3 步的目标目录里移走 PalSchema/mods/PalSoulCap80 整个旧文件夹。首次安装跳过这步。启动游戏并加入服务器。

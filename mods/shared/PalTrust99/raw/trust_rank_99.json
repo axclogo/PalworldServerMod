@@ -1,0 +1,360 @@
+{
+  "DT_FriendshipRankTable": {
+    "Friendship_Rank_11": {
+      "FriendshipRank": 11,
+      "RequiredPoint": 250000
+    },
+    "Friendship_Rank_12": {
+      "FriendshipRank": 12,
+      "RequiredPoint": 300000
+    },
+    "Friendship_Rank_13": {
+      "FriendshipRank": 13,
+      "RequiredPoint": 350000
+    },
+    "Friendship_Rank_14": {
+      "FriendshipRank": 14,
+      "RequiredPoint": 400000
+    },
+    "Friendship_Rank_15": {
+      "FriendshipRank": 15,
+      "RequiredPoint": 450000
+    },
+    "Friendship_Rank_16": {
+      "FriendshipRank": 16,
+      "RequiredPoint": 500000
+    },
+    "Friendship_Rank_17": {
+      "FriendshipRank": 17,
+      "RequiredPoint": 550000
+    },
+    "Friendship_Rank_18": {
+      "FriendshipRank": 18,
+      "RequiredPoint": 600000
+    },
+    "Friendship_Rank_19": {
+      "FriendshipRank": 19,
+      "RequiredPoint": 650000
+    },
+    "Friendship_Rank_20": {
+      "FriendshipRank": 20,
+      "RequiredPoint": 700000
+    },
+    "Friendship_Rank_21": {
+      "FriendshipRank": 21,
+      "RequiredPoint": 750000
+    },
+    "Friendship_Rank_22": {
+      "FriendshipRank": 22,
+      "RequiredPoint": 800000
+    },
+    "Friendship_Rank_23": {
+      "FriendshipRank": 23,
+      "RequiredPoint": 850000
+    },
+    "Friendship_Rank_24": {
+      "FriendshipRank": 24,
+      "RequiredPoint": 900000
+    },
+    "Friendship_Rank_25": {
+      "FriendshipRank": 25,
+      "RequiredPoint": 950000
+    },
+    "Friendship_Rank_26": {
+      "FriendshipRank": 26,
+      "RequiredPoint": 1000000
+    },
+    "Friendship_Rank_27": {
+      "FriendshipRank": 27,
+      "RequiredPoint": 1050000
+    },
+    "Friendship_Rank_28": {
+      "FriendshipRank": 28,
+      "RequiredPoint": 1100000
+    },
+    "Friendship_Rank_29": {
+      "FriendshipRank": 29,
+      "RequiredPoint": 1150000
+    },
+    "Friendship_Rank_30": {
+      "FriendshipRank": 30,
+      "RequiredPoint": 1200000
+    },
+    "Friendship_Rank_31": {
+      "FriendshipRank": 31,
+      "RequiredPoint": 1250000
+    },
+    "Friendship_Rank_32": {
+      "FriendshipRank": 32,
+      "RequiredPoint": 1300000
+    },
+    "Friendship_Rank_33": {
+      "FriendshipRank": 33,
+      "RequiredPoint": 1350000
+    },
+    "Friendship_Rank_34": {
+      "FriendshipRank": 34,
+      "RequiredPoint": 1400000
+    },
+    "Friendship_Rank_35": {
+      "FriendshipRank": 35,
+      "RequiredPoint": 1450000
+    },
+    "Friendship_Rank_36": {
+      "FriendshipRank": 36,
+      "RequiredPoint": 1500000
+    },
+    "Friendship_Rank_37": {
+      "FriendshipRank": 37,
+      "RequiredPoint": 1550000
+    },
+    "Friendship_Rank_38": {
+      "FriendshipRank": 38,
+      "RequiredPoint": 1600000
+    },
+    "Friendship_Rank_39": {
+      "FriendshipRank": 39,
+      "RequiredPoint": 1650000
+    },
+    "Friendship_Rank_40": {
+      "FriendshipRank": 40,
+      "RequiredPoint": 1700000
+    },
+    "Friendship_Rank_41": {
+      "FriendshipRank": 41,
+      "RequiredPoint": 1750000
+    },
+    "Friendship_Rank_42": {
+      "FriendshipRank": 42,
+      "RequiredPoint": 1800000
+    },
+    "Friendship_Rank_43": {
+      "FriendshipRank": 43,
+      "RequiredPoint": 1850000
+    },
+    "Friendship_Rank_44": {
+      "FriendshipRank": 44,
+      "RequiredPoint": 1900000
+    },
+    "Friendship_Rank_45": {
+      "FriendshipRank": 45,
+      "RequiredPoint": 1950000
+    },
+    "Friendship_Rank_46": {
+      "FriendshipRank": 46,
+      "RequiredPoint": 2000000
+    },
+    "Friendship_Rank_47": {
+      "FriendshipRank": 47,
+      "RequiredPoint": 2050000
+    },
+    "Friendship_Rank_48": {
+      "FriendshipRank": 48,
+      "RequiredPoint": 2100000
+    },
+    "Friendship_Rank_49": {
+      "FriendshipRank": 49,
+      "RequiredPoint": 2150000
+    },
+    "Friendship_Rank_50": {
+      "FriendshipRank": 50,
+      "RequiredPoint": 2200000
+    },
+    "Friendship_Rank_51": {
+      "FriendshipRank": 51,
+      "RequiredPoint": 2250000
+    },
+    "Friendship_Rank_52": {
+      "FriendshipRank": 52,
+      "RequiredPoint": 2300000
+    },
+    "Friendship_Rank_53": {
+      "FriendshipRank": 53,
+      "RequiredPoint": 2350000
+    },
+    "Friendship_Rank_54": {
+      "FriendshipRank": 54,
+      "RequiredPoint": 2400000
+    },
+    "Friendship_Rank_55": {
+      "FriendshipRank": 55,
+      "RequiredPoint": 2450000
+    },
+    "Friendship_Rank_56": {
+      "FriendshipRank": 56,
+      "RequiredPoint": 2500000
+    },
+    "Friendship_Rank_57": {
+      "FriendshipRank": 57,
+      "RequiredPoint": 2550000
+    },
+    "Friendship_Rank_58": {
+      "FriendshipRank": 58,
+      "RequiredPoint": 2600000
+    },
+    "Friendship_Rank_59": {
+      "FriendshipRank": 59,
+      "RequiredPoint": 2650000
+    },
+    "Friendship_Rank_60": {
+      "FriendshipRank": 60,
+      "RequiredPoint": 2700000
+    },
+    "Friendship_Rank_61": {
+      "FriendshipRank": 61,
+      "RequiredPoint": 2750000
+    },
+    "Friendship_Rank_62": {
+      "FriendshipRank": 62,
+      "RequiredPoint": 2800000
+    },
+    "Friendship_Rank_63": {
+      "FriendshipRank": 63,
+      "RequiredPoint": 2850000
+    },
+    "Friendship_Rank_64": {
+      "FriendshipRank": 64,
+      "RequiredPoint": 2900000
+    },
+    "Friendship_Rank_65": {
+      "FriendshipRank": 65,
+      "RequiredPoint": 2950000
+    },
+    "Friendship_Rank_66": {
+      "FriendshipRank": 66,
+      "RequiredPoint": 3000000
+    },
+    "Friendship_Rank_67": {
+      "FriendshipRank": 67,
+      "RequiredPoint": 3050000
+    },
+    "Friendship_Rank_68": {
+      "FriendshipRank": 68,
+      "RequiredPoint": 3100000
+    },
+    "Friendship_Rank_69": {
+      "FriendshipRank": 69,
+      "RequiredPoint": 3150000
+    },
+    "Friendship_Rank_70": {
+      "FriendshipRank": 70,
+      "RequiredPoint": 3200000
+    },
+    "Friendship_Rank_71": {
+      "FriendshipRank": 71,
+      "RequiredPoint": 3250000
+    },
+    "Friendship_Rank_72": {
+      "FriendshipRank": 72,
+      "RequiredPoint": 3300000
+    },
+    "Friendship_Rank_73": {
+      "FriendshipRank": 73,
+      "RequiredPoint": 3350000
+    },
+    "Friendship_Rank_74": {
+      "FriendshipRank": 74,
+      "RequiredPoint": 3400000
+    },
+    "Friendship_Rank_75": {
+      "FriendshipRank": 75,
+      "RequiredPoint": 3450000
+    },
+    "Friendship_Rank_76": {
+      "FriendshipRank": 76,
+      "RequiredPoint": 3500000
+    },
+    "Friendship_Rank_77": {
+      "FriendshipRank": 77,
+      "RequiredPoint": 3550000
+    },
+    "Friendship_Rank_78": {
+      "FriendshipRank": 78,
+      "RequiredPoint": 3600000
+    },
+    "Friendship_Rank_79": {
+      "FriendshipRank": 79,
+      "RequiredPoint": 3650000
+    },
+    "Friendship_Rank_80": {
+      "FriendshipRank": 80,
+      "RequiredPoint": 3700000
+    },
+    "Friendship_Rank_81": {
+      "FriendshipRank": 81,
+      "RequiredPoint": 3750000
+    },
+    "Friendship_Rank_82": {
+      "FriendshipRank": 82,
+      "RequiredPoint": 3800000
+    },
+    "Friendship_Rank_83": {
+      "FriendshipRank": 83,
+      "RequiredPoint": 3850000
+    },
+    "Friendship_Rank_84": {
+      "FriendshipRank": 84,
+      "RequiredPoint": 3900000
+    },
+    "Friendship_Rank_85": {
+      "FriendshipRank": 85,
+      "RequiredPoint": 3950000
+    },
+    "Friendship_Rank_86": {
+      "FriendshipRank": 86,
+      "RequiredPoint": 4000000
+    },
+    "Friendship_Rank_87": {
+      "FriendshipRank": 87,
+      "RequiredPoint": 4050000
+    },
+    "Friendship_Rank_88": {
+      "FriendshipRank": 88,
+      "RequiredPoint": 4100000
+    },
+    "Friendship_Rank_89": {
+      "FriendshipRank": 89,
+      "RequiredPoint": 4150000
+    },
+    "Friendship_Rank_90": {
+      "FriendshipRank": 90,
+      "RequiredPoint": 4200000
+    },
+    "Friendship_Rank_91": {
+      "FriendshipRank": 91,
+      "RequiredPoint": 4250000
+    },
+    "Friendship_Rank_92": {
+      "FriendshipRank": 92,
+      "RequiredPoint": 4300000
+    },
+    "Friendship_Rank_93": {
+      "FriendshipRank": 93,
+      "RequiredPoint": 4350000
+    },
+    "Friendship_Rank_94": {
+      "FriendshipRank": 94,
+      "RequiredPoint": 4400000
+    },
+    "Friendship_Rank_95": {
+      "FriendshipRank": 95,
+      "RequiredPoint": 4450000
+    },
+    "Friendship_Rank_96": {
+      "FriendshipRank": 96,
+      "RequiredPoint": 4500000
+    },
+    "Friendship_Rank_97": {
+      "FriendshipRank": 97,
+      "RequiredPoint": 4550000
+    },
+    "Friendship_Rank_98": {
+      "FriendshipRank": 98,
+      "RequiredPoint": 4600000
+    },
+    "Friendship_Rank_99": {
+      "FriendshipRank": 99,
+      "RequiredPoint": 4650000
+    }
+  }
+}

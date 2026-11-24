@@ -1,0 +1,74 @@
+{
+  "DT_OperatingTablePassiveSkillDataTable": {
+    "Legend": {
+      "PassiveSkill": "Legend",
+      "Price": 500000,
+      "RequireItemId": "PalPack_Implant_Legend"
+    },
+    "ElementBoost_Normal_2_PAL": {
+      "PassiveSkill": "ElementBoost_Normal_2_PAL",
+      "Price": 500000,
+      "RequireItemId": "PalPack_Implant_ElementBoost_Normal_2_PAL"
+    },
+    "ElementBoost_Fire_2_PAL": {
+      "PassiveSkill": "ElementBoost_Fire_2_PAL",
+      "Price": 500000,
+      "RequireItemId": "PalPack_Implant_ElementBoost_Fire_2_PAL"
+    },
+    "ElementBoost_Aqua_2_PAL": {
+      "PassiveSkill": "ElementBoost_Aqua_2_PAL",
+      "Price": 500000,
+      "RequireItemId": "PalPack_Implant_ElementBoost_Aqua_2_PAL"
+    },
+    "ElementBoost_Thunder_2_PAL": {
+      "PassiveSkill": "ElementBoost_Thunder_2_PAL",
+      "Price": 500000,
+      "RequireItemId": "PalPack_Implant_ElementBoost_Thunder_2_PAL"
+    },
+    "ElementBoost_Leaf_2_PAL": {
+      "PassiveSkill": "ElementBoost_Leaf_2_PAL",
+      "Price": 500000,
+      "RequireItemId": "PalPack_Implant_ElementBoost_Leaf_2_PAL"
+    },
+    "ElementBoost_Ice_2_PAL": {
+      "PassiveSkill": "ElementBoost_Ice_2_PAL",
+      "Price": 500000,
+      "RequireItemId": "PalPack_Implant_ElementBoost_Ice_2_PAL"
+    },
+    "ElementBoost_Earth_2_PAL": {
+      "PassiveSkill": "ElementBoost_Earth_2_PAL",
+      "Price": 500000,
+      "RequireItemId": "PalPack_Implant_ElementBoost_Earth_2_PAL"
+    },
+    "ElementBoost_Dark_2_PAL": {
+      "PassiveSkill": "ElementBoost_Dark_2_PAL",
+      "Price": 500000,
+      "RequireItemId": "PalPack_Implant_ElementBoost_Dark_2_PAL"
+    },
+    "ElementBoost_Dragon_2_PAL": {
+      "PassiveSkill": "ElementBoost_Dragon_2_PAL",
+      "Price": 500000,
+      "RequireItemId": "PalPack_Implant_ElementBoost_Dragon_2_PAL"
+    },
+    "PalPack_Juggernaut": {
+      "PassiveSkill": "PalPack_Juggernaut",
+      "Price": 500000,
+      "RequireItemId": "PalPack_Implant_PalPack_Juggernaut"
+    },
+    "PalPack_Homebody": {
+      "PassiveSkill": "PalPack_Homebody",
+      "Price": 500000,
+      "RequireItemId": "PalPack_Implant_PalPack_Homebody"
+    },
+    "PalPack_KaiWilderness": {
+      "PassiveSkill": "PalPack_KaiWilderness",
+      "Price": 500000,
+      "RequireItemId": "PalPack_Implant_PalPack_KaiWilderness"
+    },
+    "PalPack_PaperTiger": {
+      "PassiveSkill": "PalPack_PaperTiger",
+      "Price": 500000,
+      "RequireItemId": "PalPack_Implant_PalPack_PaperTiger"
+    }
+  }
+}

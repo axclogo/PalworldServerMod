@@ -1,0 +1,9 @@
+{
+  "BP_PalFishingSystem_C": {
+    "CatchBattleParameter": {
+      "RequiredCatchAmount": 1.0,
+      "DefaultProgressAmount": 1.0,
+      "MissFightCatchAmount": 0.0
+    }
+  }
+}
