@@ -1,0 +1,2 @@
+# PalworldServerMod
+PalworldServerMod
