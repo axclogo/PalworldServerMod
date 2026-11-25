@@ -12,7 +12,7 @@ lua tests/test_runtime.lua
 | --- | --- |
 | [test_pack.py](test_pack.py) | 升魂材料与档位、信赖经验与上限、商店追加和 50 万手术配方、共享字段冲突、与组件源码逐一比对玩家端和服务端安装包，验证分端内容、自动启用标记、客户端专属组件分端及安装说明 |
 | [test_custom_traits.py](test_custom_traits.py) | 四个词条的 ID、颜色、目标、触发范围、数值、显示文本与商店到手术台的引用 |
-| [test_runtime.lua](test_runtime.lua) | 用模拟 UE4SS 接口检查钓鱼输入、基地合并、地图自动去雾、滑翔搭档和普通装备的选择 |
+| [test_runtime.lua](test_runtime.lua) | 用模拟 UE4SS 接口检查钓鱼输入、地图自动去雾、滑翔搭档和普通装备的选择 |
 | [check_game_export.py](check_game_export.py) | 可选。对照原版数据查真实行名、ID 与排序冲突、限购模板、图标、手术引用和究极魂材料。游戏更新后可用新构建的导出重跑 |
 
 构建产物为 `安装包/幻兽帕鲁-玩家端.zip` 和 `安装包/幻兽帕鲁-服务端.zip`。包内入口是根目录的 `安装说明.txt`。两端的 `Mods/PalSchema/enabled.txt` 及各自 Lua 目录下的 `enabled.txt` 供已有的 UE4SS 在冷启动时读取。玩家包默认启用 `PalMapReveal` 与 `PalGliderVisual`。
@@ -49,4 +49,4 @@ python3 -B tests/check_game_export.py "/实际的导出目录"
 
 服务端包中的 `检查植入物.py` 支持停服时将活动目录的 PalSchema 共享文件与独立解压的包逐字节对照，检查重复追加和替换竞技场库存的 raw 文件；也可单独读取临时服日志核对登记。打包测试另覆盖单次启动完整、漏项、重复记录、同名修改、删除和前置清理接口错误。
 
-Lua 测试替身无法加载 Unreal、进行真实联机或保存世界。服务端是否接受升级、是否正确扣款与发奖、高信赖属性收益、卸载和存档恢复，都留在[游戏内验收](../docs/GAME_CHECKS.md)中。
+Lua 测试替身无法加载 Unreal、进行真实联机或保存世界。服务端是否接受升级、是否正确扣款与发奖、高信赖属性收益、卸载和存档恢复，都留在[游戏内验收](../docs/GAME_CHECKS.md)中。前置是否装对属于现场问题，装完客户端先按[排查与踩坑记录](../docs/TROUBLESHOOTING.md)的自检清单核对 `UE4SS.log`。

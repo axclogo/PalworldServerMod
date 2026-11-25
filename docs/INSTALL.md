@@ -1,6 +1,6 @@
 # 高级安装与存档回退
 
-首次安装按[玩家说明](玩家安装.txt)或[服主说明](服主安装.txt)操作。本页供已有其他 Mod、使用托管面板或需要更新和回退的服主查阅。
+首次安装按[玩家说明](玩家安装.txt)或[服主说明](服主安装.txt)操作。本页供已有其他 Mod、使用托管面板或需要更新和回退的服主查阅。装完前置的现场自检、已复现的故障和崩溃 dump 的读法见[排查与踩坑记录](TROUBLESHOOTING.md)。
 
 ## 定位实际运行的加载器
 
@@ -26,9 +26,9 @@ Wine 手装后如果没有日志或服务刚监听端口就崩溃，先在临时
 ## 配置、更新和回退
 
 - 新服停服后，若 `Pal/Saved/Config/WindowsServer/PalWorldSettings.ini` 缺失或为空，将服根的 `DefaultPalWorldSettings.ini` 复制为该文件。已有非空配置时保留原文件。从目标文件的 `OptionSettings` 中启用 `bAllowClientMod=True`。若面板会重写配置，在面板中设置。PalSchema 的 `config/config.json` 保持 `enableAutoReload=false`，更新后完整重启，避免重复追加竞技场商品。[专服参数](https://docs.palworldgame.com/settings-and-operation/configuration/)
-- 两端组件由各目录的空 `enabled.txt` 启用。玩家包安装钓鱼、滑翔伞和自动去雾脚本。专服包含基地合并脚本。单人或自己开房的玩家需要基地合并时，再从服务端包复制 `Mods/PalGroundStacksRuntime/`。[UE4SS 加载顺序](https://github.com/Okaetsu/RE-UE4SS/blob/2281fa31/UE4SS/src/UE4SSProgram.cpp#L1466-L1564)
+- 两端组件由各目录的空 `enabled.txt` 启用。玩家包安装钓鱼、滑翔伞和自动去雾脚本。专服包不再包含 Lua 脚本，只用 PalSchema 共享数据与石像 PAK。[UE4SS 加载顺序](https://github.com/Okaetsu/RE-UE4SS/blob/2281fa31/UE4SS/src/UE4SSProgram.cpp#L1466-L1564)
 - Linux 服主可在停服和部署完成后，从独立解压的服务端包运行 `python3 检查植入物.py --mods-dir "/实际路径/Mods/PalSchema/mods"`。工具把活动目录中的 PalSchema 共享文件与安装包逐字节比对，并检查其他 PalSchema raw 文件对竞技场库存和手术配方的修改。将备份移出加载器扫描目录，尤其是整份旧的竞技场组件。临时服冷启动后再运行 `python3 检查植入物.py "/实际路径/UE4SS.log"`，核对 14 个植入物的登记，以及日志里已出现的五张核心表加载错误。购买、扣款、词条及重启后的保留需要旧档副本联测。[PalSchema 目录扫描](https://github.com/Okaetsu/PalSchema/blob/302b4ffe958d219762058cade48685ef010723d8/src/Loader/PalMainLoader.cpp#L115-L128) · [物品登记](https://github.com/Okaetsu/PalSchema/blob/302b4ffe958d219762058cade48685ef010723d8/src/Loader/PalItemModLoader.cpp#L80-L110)
 - 如需专服定期备份，可在实际生效的 `OptionSettings` 中启用 `bIsUseBackupSaveData=True`，启动后在世界存档目录检查 `backup/` 是否生成。更新前的离线副本另存到服务器目录外，便于回到更新前的时间点。[官方专服配置](https://docs.palworldgame.com/settings-and-operation/configuration/)
-- 更新前停服、退出游戏，将完整 `Pal/Saved/` 备份到游戏目录外，另存双端正在使用的整合包、实际加载的前置和 Mod 启用配置。使用容器部署时一起保留对应部署源。玩家若用过地图也备份对应世界的 `LocalData.sav`。将本包的旧 Lua 组件以及 `PalSchema/mods/` 里的 `PalSoulCap80`、`PalTrust99`、`PalArenaImplants`、`PalGroundStacks`、`PalFishingWin` 移出后再装新版。保留 PalSchema 前置和其它作者的组件。
+- 更新前停服、退出游戏，将完整 `Pal/Saved/` 备份到游戏目录外，另存双端正在使用的整合包、实际加载的前置和 Mod 启用配置。使用容器部署时一起保留对应部署源。玩家若用过地图也备份对应世界的 `LocalData.sav`。将本包的旧 Lua 组件以及 `PalSchema/mods/` 里的 `PalSoulCap80`、`PalTrust99`、`PalArenaImplants`、`PalFishingWin` 移出后再装新版。保留 PalSchema 前置和其它作者的组件。
 - 先开临时世界，用已更新的玩家端检查商店、词条和手术台。已有存档使用副本验证。若 `UE4SS.log` 出现植入物 ID 后接 `is invalid. Deleting.`，先停服核对双端物品表与前置，继续保存可能丢失物品。重复商品或数值异常时，检查同功能 Mod。[物品加载机制](https://github.com/Okaetsu/PalSchema/blob/302b4ffe958d219762058cade48685ef010723d8/src/Loader/PalItemModLoader.cpp#L457-L574)
 - 回退时停服并退出客户端，把当前 `Pal/Saved/` 移到服务器目录外，再将整份备份恢复至原位置。升级前的备份若已使用本包，双端恢复当时的组件及前置后再开服。恢复至首次装本包前的备份时，移出本包组件，清理手动添加的本包 Lua 启用项，保留其他 Mod 的前置。客户端需要还原探索记录时恢复同一世界对应的地图副本。后续验证见[游戏内验收](GAME_CHECKS.md)。

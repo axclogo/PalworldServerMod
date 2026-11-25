@@ -11,7 +11,6 @@
 | [升魂 80](mods/shared/PalSoulCap80/README.md) | 生命、攻击、防御、工作速度各自最高 80。1–20 沿用原版。21–25 每级 10 个究极帕鲁之魂，此后每 5 级增加 2 个，末档 32 个。单项 20→80 共 1260 个 | 双端共享 |
 | [信赖 99](mods/shared/PalTrust99/README.md) | 11 级累计 25 万经验，此后每级增加 5 万，99 级 465 万。沿用原版经验来源和各物种的信赖属性系数，高等级实际增幅待验证 | 双端共享 |
 | [竞技场植入物](mods/shared/PalArenaImplants/README.md) | 新增传说、九种帝王及四个自定义词条的植入物。使用战斗券购买，传说与自定义各 250 张，帝王各 150 张，每种限购一件。手术台每次另收 **50 万金币** | 双端共享 |
-| [同类掉落物合并](mods/shared/PalGroundStacks/README.md) | 基地内同类掉落物按 5 米距离合并，野外沿用原版 | 双端共享距离参数，专服或房主另装 Lua |
 | [钓鱼必中](mods/client/PalFishingWin/README.md) | 正常抛竿后，本机咬钩自动提竿。双端用相同的原生小游戏进度参数，鱼获由游戏结算，专服到账待验证 | 双端共享参数，玩家端自动提竿 |
 | [地图迷雾全开](mods/client/PalMapReveal/README.md) | 打开世界地图自动隐藏探索迷雾，剧情云与传送点状态由原版管理 | 玩家端 |
 | [帕鲁滑翔伞](mods/client/PalGliderVisual/README.md) | 装备原版滑翔伞，带上已解锁滑翔能力的搭档。游戏选用搭档滑翔时，玩家端将伞面换为该物种的模型 | 玩家端 |
@@ -33,4 +32,4 @@
 
 在项目根目录运行 `python3 -B build_pack.py` 可重新生成[两份安装包](安装包)。共享数据在 [mods/shared](mods/shared)，服务端与客户端脚本分别在 [mods/server](mods/server) 和 [mods/client](mods/client)。升魂、信赖和词条的生成器在 [scripts](scripts)。
 
-[高级安装与存档回退](docs/INSTALL.md) · [社区兼容性](docs/COMPATIBILITY.md) · [离线测试](tests/README.md) · [游戏内验收](docs/GAME_CHECKS.md) · [第三方署名](THIRD_PARTY_NOTICES.md)
+[高级安装与存档回退](docs/INSTALL.md) · [社区兼容性](docs/COMPATIBILITY.md) · [排查与踩坑记录](docs/TROUBLESHOOTING.md) · [待修问题](docs/ISSUES.md) · [验收记录](docs/ACCEPTANCE.md) · [离线测试](tests/README.md) · [游戏内验收](docs/GAME_CHECKS.md) · [第三方署名](THIRD_PARTY_NOTICES.md)

@@ -34,7 +34,7 @@ def main():
     build_trust99.main()
     build_arena.main()
     (ROOT / "安装包").mkdir(exist_ok=True)
-    write_package("server", "服务端", "服主安装.txt", ("PalGroundStacksRuntime",))
+    write_package("server", "服务端", "服主安装.txt", ())
     write_package("client", "玩家端", "玩家安装.txt", ("PalFishingWin", "PalMapReveal", "PalGliderVisual"))
 
 

@@ -94,58 +94,6 @@ test("fishing follows the reflected bite value and skips a missing state", funct
     end
 end)
 
-test("base settings follow registered bases independently of world object count", function()
-    local invalid = object({valid = false})
-    local instance, state, world = invalid, invalid, invalid
-    local ranges = {{bMergeDropItems = false, TickInterval = 0.7}, {bMergeDropItems = true, bUpdateSimple = false}}
-    local manager = object({BaseCampSignificanceInfoList = ranges})
-    local checks, maintain = 0, nil
-    local env = load_mod("mods/server/PalGroundStacksRuntime/Scripts/main.lua", {
-        require = function(name)
-            assert(name == "UEHelpers")
-            return {GetGameInstance = function() return instance end}
-        end,
-        StaticFindObject = function(path)
-            assert(path == "/Script/Pal.Default__PalUtility")
-            return {
-                GetPalGameStateInGame = function(_, context) assert(context == world); return state end,
-                GetBaseCampManager = function(_, context) assert(context == world); checks = checks + 1; return manager end
-            }
-        end,
-        LoopInGameThreadWithDelay = function(ms, fn) assert(ms == 15000); maintain = fn end,
-    })
-    assert(not next(env.hooks) and checks == 0)
-    assert(maintain() == false)
-    instance = object({GetWorld = function() return world end})
-    assert(maintain() == false and checks == 0)
-    world = object(); assert(maintain() == false and checks == 0)
-    state = object({BaseCampReplicator = invalid})
-    assert(maintain() == false and ranges[1].bMergeDropItems and #ranges == 2)
-    assert(ranges[1].TickInterval == 0.7 and ranges[2].bUpdateSimple == false)
-    local writes = 0
-    local function base()
-        local flag = false
-        return object({SignificanceInfo = setmetatable({}, {
-            __index = function(_, k) assert(k == "bMergeDropItems"); return flag end,
-            __newindex = function(_, k, v)
-                assert(k == "bMergeDropItems" and v == true and not flag)
-                flag = true; writes = writes + 1
-            end
-        })})
-    end
-    local entries = {{BaseCamp = invalid}, {BaseCamp = base()}}
-    state.BaseCampReplicator = object({RepInfoArray = {Items = entries}})
-    maintain(); maintain()
-    assert(writes == 1)
-    entries[1] = {BaseCamp = base()}
-    entries[#entries + 1] = {BaseCamp = base()}
-    maintain(); assert(writes == 3)
-    manager.BaseCampSignificanceInfoList, entries[2].BaseCamp = {}, invalid
-    maintain(); assert(writes == 3)
-    state, manager.BaseCampSignificanceInfoList = object({BaseCampReplicator = invalid}), {{bMergeDropItems = false}}
-    maintain(); assert(manager.BaseCampSignificanceInfoList[1].bMergeDropItems)
-end)
-
 local function map_scene()
     local s = {scans = 0, writes = 0, bodies = {}}
     local dead = object({valid = false})
@@ -222,7 +170,7 @@ local actor_type = "/Script/Pal.PalGliderObject"
 local function name(text) return {ToString = function() return text end} end
 
 local function glider_scene()
-    local s = {events = {}, assets = {}, sets = 0, loads = 0, plays = 0}
+    local s = {events = {}, assets = {}, sets = 0, loads = 0, plays = 0, keys = {}, messages = {}}
     local function asset(path)
         local a = object({GetAddress = function() return path end,
             GetFullName = function() return "Object " .. path end})
@@ -238,7 +186,9 @@ local function glider_scene()
     local template = object({Mesh = source, GetMainMesh = function() return s.main_missing and empty or source end, StaticCharacterParameterComponent = object({
         GeneralBlendSpaceMap = {ForEach = function(_, f) f(remote(3), remote(s.animation)) end}})})
     s.class_name = "BP_Glider_Eagle_Tier2_C"
-    s.target = object({mesh = s.fabric, OverrideMaterials = {s.dye}})
+    s.target = object({mesh = s.fabric, OverrideMaterials = {s.dye},
+        RelativeLocation = {X = 0, Y = 0, Z = 0}, RelativeScale3D = {X = 1, Y = 1, Z = 1},
+        RelativeRotation = {Pitch = 0, Yaw = 0, Roll = 0}})
     function s.target:GetSkeletalMeshAsset() return self.mesh end
     function s.target:SetSkeletalMeshAsset(m) self.mesh = m; s.sets = s.sets + 1 end
     function s.target:GetMaterial(i) return self.OverrideMaterials[i+1] or empty end
@@ -246,6 +196,7 @@ local function glider_scene()
     s.target.bNoSkeletonUpdate, s.target.bPauseAnims = true, true
     function s.target:IsComponentTickEnabled() return self.tick == true end
     function s.target:SetComponentTickEnabled(enabled) self.tick = enabled end
+    function s.target:K2_SetWorldLocationAndRotation(loc, rot) self.world, self.world_rot = loc, rot end
     function s.target:PlayAnimation(anim, loop)
         assert(anim == s.animation and loop and self.tick and not self.bNoSkeletonUpdate and not self.bPauseAnims)
         s.plays = s.plays + 1
@@ -258,7 +209,8 @@ local function glider_scene()
         GetCurrentGliderObject = function() return s.actor end})
     local owner = object({GetComponentByClass = function(_, class)
         assert(class == s.assets[slot_type]); return s.slot
-    end})
+    end, K2_GetActorLocation = function() return {X = 100, Y = 200, Z = 50} end,
+        K2_GetActorRotation = function() return {Pitch = 0, Yaw = 90, Roll = 0} end})
     s.assets[slot_type] = asset(slot_type)
     function s.actor:GetOwner() return owner end
     function s.slot:IsGliding() return false end
@@ -275,11 +227,23 @@ local function glider_scene()
         GetDefaultObject = function() return template end, ClearOverrideMaterials = function(_, t) t.OverrideMaterials = {} end})
     s.assets["/Script/Engine.Default__KismetSystemLibrary"] = object({
         Conv_SoftClassReferenceToClass = function(_, ref) return (s.cold or ref == "Bad") and empty or template end,
-        LoadClassAsset_Blocking = function(_, ref) s.loads = s.loads+1; return ref == "Bad" and empty or template end})
-    s.env = load_mod("mods/client/PalGliderVisual/Scripts/main.lua", {
+        LoadClassAsset_Blocking = function(_, ref) s.loads = s.loads+1; return ref == "Bad" and empty or template end,
+        -- 伞面与物种本体的世界包围盒不同：伞面中心在本体下方 200，宽度 100 对 80。
+        GetComponentBounds = function(_, component)
+            if component.mesh == s.pal then
+                return {X = 0, Y = 0, Z = 300}, {X = 80, Y = 40, Z = 10}, 0
+            end
+            return {X = 0, Y = 0, Z = 100}, {X = 100, Y = 50, Z = 20}, 0
+        end,
+        PrintString = function(_, actor, text) s.screen = text end})
+    s.assets["/Script/Engine.Default__KismetMathLibrary"] = object({
+        ComposeRotators = function(_, a, b)
+            return {Pitch = a.Pitch + b.Pitch, Yaw = a.Yaw + b.Yaw, Roll = a.Roll + b.Roll}
+        end})    s.env = load_mod("mods/client/PalGliderVisual/Scripts/main.lua", {
         FName = name, StaticFindObject = function(path) return s.assets[path] or empty end,
         RegisterCustomEvent = function(event, cb) s.events[event] = cb end,
         RegisterLoadMapPreHook = function(cb) s.travel = cb end,
+        print = function(message) s.messages[#s.messages + 1] = message end,
         FindAllOf = function() error("no global scanning") end})
     function s.visible(value) s.is_visible = value; s.events.OnChangeGliderVisibility(remote(s.slot), remote(value)) end
     function s.refresh(id)
@@ -289,14 +253,51 @@ local function glider_scene()
     return s
 end
 
-test("a visible tier glider selects its species before the replicated ID is ready", function()
+test("a visible tier glider swaps in the species and places it on the player", function()
     for _, family in ipairs({"Eagle","FlyingManta","FlyingManta_Thunder","NegativeOctopus","NegativeOctopus_Neutral","WindChimes","WindChimes_Ice"}) do
         local s = glider_scene(); s.class_name = "BP_Glider_"..family.."_Tier4_C"
         s.visible(true)
         assert(s.target.mesh == s.pal and s.looked_up == family and s.plays == 1)
+        -- 默认补偿来自实机调参结果：pitch -90 / yaw -90 / roll 0，位置 (20, 150, 0)。
+        assert(s.target.RelativeRotation.Yaw == -90 and s.target.RelativeRotation.Roll == 0)
+        assert(s.target.RelativeRotation.Pitch == -90)
+        assert(math.abs(s.target.RelativeLocation.X - 20) < 0.5)
+        assert(math.abs(s.target.RelativeLocation.Y - 150) < 0.5)
+        assert(math.abs(s.target.RelativeLocation.Z) < 0.5)
         s.events.OnStartGliding(remote(s.actor))
         assert(s.sets == 1 and s.target:GetMaterial(0) == s.feather)
     end
+end)
+
+test("species base classes are recognised with the game's mixed naming", function()
+    for _, case in ipairs({
+        {"BP_Glider_EagleBase_C", "Eagle"},
+        {"BP_Glider_FlyingMantaBase_C", "FlyingManta"},
+        {"BP_Glider_FlyingManta_ThunderBase_C", "FlyingManta_Thunder"},
+        {"BP_Glider_NegativeOctopus_NeutralBase_C", "NegativeOctopus_Neutral"},
+        {"BP_Glider_WindChimes_Base_C", "WindChimes"},
+        {"BP_Glider_WindChimes_Ice_Base_C", "WindChimes_Ice"},
+    }) do
+        local s = glider_scene(); s.class_name = case[1]
+        s.visible(true)
+        assert(s.target.mesh == s.pal and s.looked_up == case[2] and s.plays == 1, case[1])
+    end
+end)
+
+test("the item glider base class stays a shared glider", function()
+    local s = glider_scene(); s.class_name = "BP_Glider_Item_Base_C"
+    s.visible(true)
+    assert(s.sets == 0 and s.plays == 0) -- 普通伞基类不是搭档专属，不去查物种
+    s.refresh("Eagle")
+    assert(s.target.mesh == s.pal and s.plays == 0)
+end)
+
+test("a partner glider without a matching animation still restores the skeleton update", function()
+    local s = glider_scene(); s.class_name = "BP_Glider_Eagle_Tier0_C"
+    s.animation.Skeleton = s.fabric
+    s.visible(true)
+    assert(s.target.mesh == s.pal and s.plays == 0)
+    assert(not s.target.bNoSkeletonUpdate and not s.target.bPauseAnims and s.target.tick)
 end)
 
 test("the partner gear start event can precede publication of the current gear in the player slot", function()
@@ -306,8 +307,10 @@ test("the partner gear start event can precede publication of the current gear i
     assert(s.looked_up == "Eagle" and s.sets == 1 and s.plays == 1)
     s.events.OnEndGliding(remote(s.actor))
     assert(not s.target.tick and s.target.bPauseAnims and s.target.bNoSkeletonUpdate)
+    assert(s.target.mesh == s.fabric and s.target.RelativeLocation.Z == 0 and s.target.RelativeScale3D.X == 1)
+    assert(s.target.RelativeRotation.Yaw == 0)
     s.events.OnStartGliding(remote(s.actor))
-    assert(s.sets == 1 and s.plays == 2 and s.target.tick)
+    assert(s.sets == 3 and s.plays == 2 and s.target.tick) -- 换模 + 收伞还原 + 再次换模
     local first_rank = glider_scene()
     first_rank.class_name = "BP_Glider_WindChimes_Base_C"
     first_rank.events.OnStartGliding(remote(first_rank.actor))
@@ -356,7 +359,7 @@ test("a species default with only the inherited mesh still supplies its visual",
     local s = glider_scene()
     s.main_missing = true
     s.visible(true)
-    assert(s.target.mesh == s.pal)
+    assert(s.target.mesh == s.pal and s.plays == 1)
 end)
 
 test("late actor, late variant ID and a refresh on an existing mesh", function()
@@ -369,7 +372,7 @@ test("late actor, late variant ID and a refresh on an existing mesh", function()
     s.env.hooks[slot_type..":OnRep_CurrentGliderPalID"].post(remote(s.slot))
     assert(s.looked_up == "FlyingManta_Thunder")
     s.target.OverrideMaterials = {s.dye}; s.refresh("FlyingManta_Thunder")
-    assert(s.sets == 1 and s.target:GetMaterial(0) == s.feather)
+    assert(s.sets == 1 and s.target:GetMaterial(0) == s.feather and s.looked_up == "FlyingManta_Thunder")
 end)
 
 test("initial skin refresh defers a cold load until the glider is shown", function()
@@ -399,7 +402,7 @@ test("a late glider owner defers all work until the partner gear starts", functi
     s.cold = false; s.refresh("Eagle")
     assert(s.sets == 0 and s.looked_up == nil)
     s.events.OnStartGliding(remote(s.actor))
-    assert(s.sets == 1 and s.loads == 0)
+    assert(s.sets == 1 and s.loads == 0 and s.looked_up == "Eagle")
 end)
 
 test("jetpacks, unselected gear, missing species and incompatible animations", function()

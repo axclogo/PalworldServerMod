@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SHARED = ROOT / "mods/shared"
 INSTALL_PACKAGES = {
     "client": ("幻兽帕鲁-玩家端.zip", "玩家安装.txt", "PalFishingWin"),
-    "server": ("幻兽帕鲁-服务端.zip", "服主安装.txt", "PalGroundStacksRuntime"),
+    "server": ("幻兽帕鲁-服务端.zip", "服主安装.txt", None),
 }
 SHARED_FILES = (
     "PalTrust99/raw/trust_rank_99.json",
@@ -29,7 +29,6 @@ SHARED_FILES = (
     "PalArenaImplants/raw/custom_passives.json",
     "PalArenaImplants/raw/surgery.json",
     "PalArenaImplants/translations/global/custom_passives.json",
-    "PalGroundStacks/blueprints/merge_range.json",
     "PalFishingWin/blueprints/catch_battle.json",
 )
 
@@ -228,11 +227,7 @@ class PackTests(unittest.TestCase):
                     owners[key] = path
         self.assertEqual(set(owners), {
             ("BP_PalGameSetting_C", "FriendshipPoint_Max"),
-            ("BP_PalGameSetting_C", "MergeDropItemRange"),
             ("BP_PalFishingSystem_C", "CatchBattleParameter"),
-        })
-        self.assertEqual(read("PalGroundStacks/blueprints/merge_range.json"), {
-            "BP_PalGameSetting_C": {"MergeDropItemRange": 500.0}
         })
 
     def test_fishing_only_changes_native_battle_progress(self):
@@ -274,9 +269,10 @@ class PackTests(unittest.TestCase):
                 expected["安装说明.txt"] = guide_text.replace("\n", "\r\n").encode("utf-8-sig")
                 expected["Pal/Content/Paks/~mods/PalSoulCap80_P.pak"] = build_soul80.PAK.read_bytes()
                 expected["Mods/PalSchema/enabled.txt"] = b""
-                expected[f"Mods/{lua_mod}/enabled.txt"] = b""
-                lua_path = Path(lua_mod) / "Scripts/main.lua"
-                expected[f"Mods/{lua_path.as_posix()}"] = (ROOT / "mods" / side / lua_path).read_bytes()
+                if lua_mod:
+                    expected[f"Mods/{lua_mod}/enabled.txt"] = b""
+                    lua_path = Path(lua_mod) / "Scripts/main.lua"
+                    expected[f"Mods/{lua_path.as_posix()}"] = (ROOT / "mods" / side / lua_path).read_bytes()
                 if side == "client":
                     for name in ("PalMapReveal", "PalGliderVisual"):
                         expected[f"Mods/{name}/enabled.txt"] = b""

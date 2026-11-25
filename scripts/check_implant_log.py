@@ -11,7 +11,6 @@ SHARED = {
     "PalTrust99": ("raw/trust_rank_99.json", "blueprints/trust_limit.json"),
     "PalArenaImplants": ("items/implants.json", "raw/arena_shop.json", "raw/surgery.json", "raw/implant_icons.json",
                          "raw/custom_passives.json", "translations/global/custom_passives.json"),
-    "PalGroundStacks": ("blueprints/merge_range.json",),
     "PalFishingWin": ("blueprints/catch_battle.json",),
 }
 
@@ -33,11 +32,11 @@ def check_shared_files(mods, reference):
             source = reference / relative
             installed = mods / relative
             if not source.is_file():
-                raise ValueError(f"服务端包缺少 {relative}，请重新完整解压。")
+                raise ValueError(f"服务端包缺少 {relative.as_posix()}，请重新完整解压。")
             if not installed.is_file():
-                differences.append(f"缺少 {relative}")
+                differences.append(f"缺少 {relative.as_posix()}")
             elif installed.read_bytes() != source.read_bytes():
-                differences.append(f"内容不同 {relative}")
+                differences.append(f"内容不同 {relative.as_posix()}")
     if differences:
         raise ValueError("活动目录与这份安装包不一致：\n" + "\n".join(differences))
 
@@ -121,7 +120,7 @@ def check_arena_files(mods, shipped):
             raise ValueError(f"raw 数据应为 JSON 对象：{path}")
         if path != shop_file:
             try:
-                overlaps.extend(f"{path.relative_to(mods)} / {issue}" for issue in check_shop_rows(data, item_ids))
+                overlaps.extend(f"{path.relative_to(mods).as_posix()} / {issue}" for issue in check_shop_rows(data, item_ids))
             except (AttributeError, TypeError) as error:
                 raise ValueError(f"无法解析竞技场库存：{path}") from error
         if path == own_file:
@@ -138,7 +137,7 @@ def check_arena_files(mods, shipped):
             if current and isinstance(patch, dict) and all(current.get(k) == v for k, v in row.items()):
                 continue
             if current or skill in expected or item in item_ids or "*" in key:
-                overlaps.append(f"{path.relative_to(mods)} / {key}")
+                overlaps.append(f"{path.relative_to(mods).as_posix()} / {key}")
     if overlaps:
         raise ValueError("以下竞技场库存或手术配方可能冲突，请核对后再使用旧档：\n" + "\n".join(overlaps))
 
