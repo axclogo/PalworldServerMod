@@ -8,6 +8,8 @@ Linux 宿主应先确认进程是 Wine 下的 Windows 版 PalServer。原生 Lin
 
 双端各将 ZIP 内的 `Pal/` 合并到运行游戏的根目录，石像表实际位置为 `Pal/Content/Paks/~mods/PalSoulCap80_P.pak`。容器要将这个文件部署到重建后仍可恢复的位置。回退旧包时移走这份 PAK，再恢复对应备份。
 
+仓库的 `安装包/前置/` 直接放了两份已核对的前置压缩包：`UE4SS-Palworld-g2281fa31.zip` 与 `PalSchema_0.6.71.zip`，SHA256 记在[排查与踩坑记录](TROUBLESHOOTING.md)。服务器上直接取这两份即可，不必再去 GitHub 找，避免下成上游版或漏掉 `MemberVariableLayout.ini`。
+
 每端选一套前置。安装包里的 `Mods/` 与 UE4SS 实际使用的同名目录合并。PalSchema 固定从 UE4SS 工作目录下的 `Mods/PalSchema/mods/` 读取共享数据；托管面板的额外 Lua 搜索路径只影响脚本。可通过活动目录中的 `PalSchema/mods/PalArenaImplants/raw/surgery.json` 核对层级和大小写。[PalSchema 加载器](https://github.com/Okaetsu/PalSchema/blob/302b4ffe958d219762058cade48685ef010723d8/src/Loader/PalMainLoader.cpp#L115-L120)
 
 | 现有前置 | 运行目录与配置 |
