@@ -1,8 +1,8 @@
 # 无限秘药
 
-把玩家单项属性的可用点数上限从原版（每项约 10 点、对应 10 瓶秘药）提高到 **10000**，生命、耐力、攻击、防御、负重、捕获、工作速度等由秘药或属性点提升的属性都不再在小数值上下限。
+把玩家单项属性的可用点数上限从原版（每项合计 50 点）提高到 **10000**，生命、耐力、攻击、防御、负重、捕获、工作速度这项，原版把「等级给的属性点 + 秘药/遗物给的额外点（ExStatusPoint）」合并限制在 50，现在上限是 10000。
 
-只改一个字段：`BP_PalGameSetting_C.MaxUseablePoint_SumStatusPointAndExStatusPoint_PerParameter`。它同时是「属性点 + 秘药（ExStatusPoint）」合计的每项可用上限，所以调高后两者都放开；不新增物品、不改掉落、不改经验。
+只改一个字段：`BP_PalGameSetting_C.MaxUseablePoint_SumStatusPointAndExStatusPoint_PerParameter`。它同时是「属性点 + 秘药/遗物（ExStatusPoint）」合计的每项可用上限，所以调高后两者都放开；不新增物品、不改每瓶的增量（增量在 DT_GainStatusPointsItem），也不改经验。
 
 ## 为什么是这个字段
 
