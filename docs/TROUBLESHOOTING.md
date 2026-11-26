@@ -60,3 +60,15 @@ UE4SS 鑷繁鍐?dump锛屽墠鎻愭槸 `UE4SS-settings.ini` 鐨?`[CrashDump] 
 | 外部控制台窗口 | 由代理启动时出现，Steam 正常启动时不出现 | 需要画面外反馈时，看 `UE4SS.log` 最稳 |
 
 改 `main.lua` 之后**先用离线测试解析一遍再装**：Lua 语法错误会让整个组件不加载，日志里只有一行 `Error loading script: ... ')' expected near '['`，游戏里表现为该 Mod 完全没生效（例如滑翔伞连原版伞面都不见了）。
+
+## 2026-11-26 无限秘药随包后滑翔伞异常（已回退，原因未隔离）
+
+**现象。** 在玩家端包里加入 `PalElixirUncap`（只有一个 blueprint JSON）后，天擒鸟滑翔伞出现异常；换回不含它的包后恢复正常。
+
+**对比结论。** 含秘药与不含秘药的两份玩家端包，除该 JSON 外 19 个文件**逐字节相同**，包括 `PalGliderVisual/Scripts/main.lua`（11635 字节）。所以不是滑翔脚本被改坏。
+
+**另一个同时发生的变量。** 核对本地安装时发现 12 个文件仍是 11-25 首次安装的旧版本（比包内小），本次一并覆盖成包内版本。因此"恢复"可能来自「去掉秘药」或「补齐旧数据」两者之一，尚未隔离。
+
+**处置。** 秘药组件移到 `mods/parked/PalElixirUncap/`，不再进入打包清单（`check_implant_log.SHARED`）；玩家端包重新生成后与那个可用的包逐字节一致。README 功能表、`GAME_CHECKS` 与 `ACCEPTANCE` 同步：该项记为暂缓。
+
+**隔离方法。** 在已确认正常的包上，只把 `elixir_cap.json` 放回 `PalSchema/mods/PalElixirUncap/blueprints/`，重启复测天擒鸟；正常则说明与秘药无关，异常则说明需要换实现（社区同类模组走的是客户端蓝图逻辑/Lua，而不是 PalSchema 数据）。

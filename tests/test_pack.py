@@ -30,7 +30,6 @@ SHARED_FILES = (
     "PalArenaImplants/raw/surgery.json",
     "PalArenaImplants/translations/global/custom_passives.json",
     "PalFishingWin/blueprints/catch_battle.json",
-    "PalElixirUncap/blueprints/elixir_cap.json",
 )
 
 
@@ -229,7 +228,6 @@ class PackTests(unittest.TestCase):
         self.assertEqual(set(owners), {
             ("BP_PalGameSetting_C", "FriendshipPoint_Max"),
             ("BP_PalFishingSystem_C", "CatchBattleParameter"),
-            ("BP_PalGameSetting_C", "MaxUseablePoint_SumStatusPointAndExStatusPoint_PerParameter"),
         })
 
     def test_fishing_only_changes_native_battle_progress(self):
