@@ -30,6 +30,7 @@ SHARED_FILES = (
     "PalArenaImplants/raw/surgery.json",
     "PalArenaImplants/translations/global/custom_passives.json",
     "PalFishingWin/blueprints/catch_battle.json",
+    "PalBaseCampCap/raw/base_camp_level.json",
 )
 
 

@@ -12,6 +12,7 @@ SHARED = {
     "PalArenaImplants": ("items/implants.json", "raw/arena_shop.json", "raw/surgery.json", "raw/implant_icons.json",
                          "raw/custom_passives.json", "translations/global/custom_passives.json"),
     "PalFishingWin": ("blueprints/catch_battle.json",),
+    "PalBaseCampCap": ("raw/base_camp_level.json",),
 }
 
 
