@@ -1,0 +1,5 @@
+{
+  "Pal/Content/Pal/Blueprint/System/BP_PalOptionSubsystem": {
+    "OptionWorldStaticSettings.BaseCampWorkerMaxNum.Max": 80
+  }
+}

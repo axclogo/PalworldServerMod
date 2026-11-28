@@ -72,3 +72,28 @@ UE4SS 鑷繁鍐?dump锛屽墠鎻愭槸 `UE4SS-settings.ini` 鐨?`[CrashDump] 
 **处置。** 秘药组件移到 `mods/parked/PalElixirUncap/`，不再进入打包清单（`check_implant_log.SHARED`）；玩家端包重新生成后与那个可用的包逐字节一致。README 功能表、`GAME_CHECKS` 与 `ACCEPTANCE` 同步：该项记为暂缓。
 
 **隔离方法。** 在已确认正常的包上，只把 `elixir_cap.json` 放回 `PalSchema/mods/PalElixirUncap/blueprints/`，重启复测天擒鸟；正常则说明与秘药无关，异常则说明需要换实现（社区同类模组走的是客户端蓝图逻辑/Lua，而不是 PalSchema 数据）。
+
+## 2026-11-28 据点工作帕鲁：等级表补丁有效，选项上限的蓝图属性名未找到
+
+**已证实有效的部分。** `DT_BaseCampLevelData` 的 raw 补丁能正常加载，PalSchema 日志：
+
+```
+[PalSchema] DT_BaseCampLevelData: 1 rows updated, 0 rows added, 0 rows deleted, 0 errors.
+```
+
+**未解决的部分。** 原版把世界设置 `BaseCampWorkerMaxNum` 锁在 50，需要改 `BP_PalOptionSubsystem`。按社区模组公布的写法尝试：
+
+```json
+{ "BP_PalOptionSubsystem_C": { "OptionWorldStaticSettings.BaseCampWorkerMaxNum.Max": 80 } }
+```
+
+日志给出：
+
+```
+[PalSchema] Loaded changes to BP_PalOptionSubsystem_C
+[PalSchema] [warning] Property 'OptionWorldStaticSettings.BaseCampWorkerMaxNum.Max' does not exist in BP_PalOptionSubsystem_C
+```
+
+类能被找到，属性路径不对。该补丁已移到 `mods/shared/PalBaseCampCap/pending/`（PalSchema 不扫描该目录，不进包），备选写法见该目录 README。
+
+**取正确属性名的办法。** 解包社区成品 pak（如 `StarkyBase100_P.pak`）读其 uasset 属性名表，无需启动游戏。
